@@ -88,5 +88,14 @@ public class Main {
             System.out.println(gender);
             person.forEach(System.out::println);
         });
+
+
+        //OLD female
+        Optional<String> oldfemale=getPeople().stream()
+                .filter(person -> person.getGender().equals(Gender.FEMALE))
+                .max(Comparator.comparing(Person::getAge))
+                .map(Person::getName);
+        oldfemale.ifPresent(System.out::println);
+
     }
 }
